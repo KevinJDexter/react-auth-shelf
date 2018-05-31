@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export function getShelfItems(payload) {
+export function getShelfItems() {
     const config = {
         headers: { 'Content-Type': 'application/json' },
         withCredentials: true,
