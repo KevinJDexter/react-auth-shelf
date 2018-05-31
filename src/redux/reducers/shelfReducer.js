@@ -10,8 +10,8 @@ const shelfReducer = (state = [], action) => {
 
 const peopleReducer = (state = [], action) => {
     switch (action.type) {
-        case SHELF_ACTIONS.OBTAIN_USERS:
-            return action.allUsers;
+        case SHELF_ACTIONS.SET_USERS:
+            return action.payload;
         default:
             return state;
     }

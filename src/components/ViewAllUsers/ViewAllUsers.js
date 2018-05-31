@@ -6,9 +6,8 @@ import Nav from '../../components/Nav/Nav';
 import { getTheUsers } from '../../redux/actions/shelfActions';
 // import { triggerLogout } from '../../redux/actions/loginActions';
 
-
 const mapStateToProps = state => ({
-    people: state.peopleReducer,
+    people: state.shelf.peopleReducer,
     user: state.user,
 });
 
@@ -32,6 +31,7 @@ class ViewAllUsers extends Component {
         { console.log(this.props.people) }
         return (
             <div>
+                <Nav />
                 <table>
                     <thead>
                         <tr>

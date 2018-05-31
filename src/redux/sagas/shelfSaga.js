@@ -11,9 +11,13 @@ function* fetchShelf() {
     };
 }
 
-function* getTheUsers() {
+function* getTheUsers(action) {
     try {
-        const allUsers = yield getUsers();
+        const userList = yield getUsers();
+        yield put({
+            type: SHELF_ACTIONS.SET_USERS,
+            payload: userList,
+        });
     }
     catch (error) {
         console.log(error);
