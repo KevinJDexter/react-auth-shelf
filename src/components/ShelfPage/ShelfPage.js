@@ -1,22 +1,27 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
 import { getItems } from '../../redux/actions/shelfActions';
 
-const mapStateToProps = reduxState => ({
-    reduxState,
+const mapStateToProps = state => ({
+    user: state.user,
+    shelf: state.shelf
 });
 
 class ShelfPage extends Component {
-
 
   componentDidMount() {
     this.props.dispatch(getItems());
   }
 
+  componentDidUpdate() {
+    if (!this.props.user.isLoading && this.props.user.userName === null) {
+      this.props.history.push('home');
+    }
+  }
+
   render() {
 
-    const items = this.props.reduxState.shelf.shelfReducer.map((item) => {
+    const items = this.props.shelf.shelfReducer.map((item) => {
        return <li key={item.id}>{item.description}</li>
     });
 
