@@ -7,7 +7,7 @@ const mapStateToProps = reduxState => ({
     reduxState,
 });
 
-class ShelfView extends Component {
+class ShelfPage extends Component {
 
 
   componentDidMount() {
@@ -15,12 +15,20 @@ class ShelfView extends Component {
   }
 
   render() {
+
+    const items = this.props.reduxState.shelf.shelfReducer.map((item) => {
+       return <li key={item.id}>{item.description}</li>
+    });
+
     return (
       <div>
         <h1>ShelfView</h1>
+        <ul>
+          {items}
+        </ul>
       </div>
     );
   }
 }
 
-export default connect(mapStateToProps)(ShelfView);
+export default connect(mapStateToProps)(ShelfPage);
