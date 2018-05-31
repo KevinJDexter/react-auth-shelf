@@ -16,13 +16,13 @@ function* postShelfItem(action) {
     try {
         yield callPostShelfItem(action.payload)
     } catch (error) {
-
+        console.log(error);
     }
 }
 
 function* shelfSaga() {
-    yield takeEvery(SHELF_ACTIONS.FETCH_SHELF, fetchShelf);
-    yield takeEver(SHELF_ACTIONS.ADD_SHELF_ITEM, postShelfItem)
+    // yield takeEvery(SHELF_ACTIONS.FETCH_SHELF, fetchShelf);
+    yield takeEvery(SHELF_ACTIONS.ADD_SHELF_ITEM, postShelfItem);
 }
 
 export default shelfSaga;
