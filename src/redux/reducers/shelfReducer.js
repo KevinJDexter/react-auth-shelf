@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import { USER_ACTIONS } from '../actions/userActions';
+import { SHELF_ACTIONS } from '../actions/shelfActions';
 
 const shelfReducer = (state=[], action) =>{
     switch(action.type) {
+        case SHELF_ACTIONS.SET_SHELF:
+            return action.payload
         default:
             return state;
     }

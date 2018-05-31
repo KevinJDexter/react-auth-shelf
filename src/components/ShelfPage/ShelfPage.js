@@ -8,15 +8,7 @@ const mapStateToProps = reduxState => ({
 });
 
 class ShelfView extends Component {
-  constructor(props) {
-    super(props);
 
-    this.state = {
-      username: '',
-      password: '',
-      message: '',
-    };
-  }
 
   componentDidMount() {
     this.props.dispatch(getItems());
