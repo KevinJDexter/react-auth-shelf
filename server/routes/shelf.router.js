@@ -39,7 +39,17 @@ router.put('/:id', (req, res) => {
  * they have added to the shelf
  */
 router.get('/count', (req, res) => {
-
+    const quertyText = `SELECT "username", COUNT("item"."id") FROM person
+    JOIN item ON "person_id" = "person"."id"
+    GROUP BY "person"."username";`;
+    pool.query(quertyText)
+    .then((results) => {
+        res.send(results.rows);
+    })
+    .catch((error) => {
+        console.log(`error with count get: ${error}`)
+        res.sendStatus(500);
+    });
 });
 
 

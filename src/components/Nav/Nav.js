@@ -15,9 +15,14 @@ const Nav = () => (
             Info Page
           </Link>
         </li>
+        <li>
+          <Link to="/everyone">
+          All Users
+          </Link>
+        </li>
       </ul>
-    </div>
   </div>
+  </div >
 );
 
 export default Nav;

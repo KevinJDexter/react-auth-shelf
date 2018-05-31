@@ -1,36 +1,54 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios';
+import Nav from '../../components/Nav/Nav';
+
+// import { fetchUser } from '../../redux/actions/userActions';
+import { getTheUsers } from '../../redux/actions/shelfActions';
+// import { triggerLogout } from '../../redux/actions/loginActions';
+
+
+const mapStateToProps = state => ({
+    people: state.peopleReducer,
+    user: state.user,
+});
 
 class ViewAllUsers extends Component {
-    constructor() {
-        super();
-        this.state = {
-            items: [],
-        }
+    componentDidMount() {
+        // this.props.dispatch(fetchUser());
+        this.props.dispatch(getTheUsers());
     }
 
-    getTheUsers = () => {
-        axios({
-            method: 'GET',
-            url: '/api/shelf/count',
-        })
-        .then((response) => {
-            this.setState({
-                users: response.data,
-            });
-        })
-        .catch((error) => {
-            console.log(error);
-        })
-    }
+    // componentDidUpdate() {
+    //     if (!this.props.user.isLoading && this.props.user.userName === null) {
+    //         this.props.history.push('home');
+    //     }
+    // }
+
+    // logout = () => {
+    //     this.props.dispatch(triggerLogout());
+    // }
 
     render() {
+        { console.log(this.props.people) }
         return (
             <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Person</th>
+                            <th>Total Items</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {/* {this.props.people.map((person) => {<tr key={person.id}>
+                        <td>{person.username}</td>
+                        <td>{person.count}</td>
+                        </tr>})} */}
+                    </tbody>
+                </table>
             </div>
         );
     }
 }
 
-export default connect()(ViewAllUsers);
+export default connect(mapStateToProps)(ViewAllUsers);
