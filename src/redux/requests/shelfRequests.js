@@ -7,8 +7,6 @@ export function getShelfItems(payload) {
       };
     
       return axios.get('api/shelf', config)
-        .then(response => {
-            console.log(response);
-        })
+        .then(response => response.data)
         .catch((error) => { throw error; });
 }

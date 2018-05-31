@@ -8,7 +8,7 @@ function* fetchShelf(action) {
         const shelfItems = yield getShelfItems()
         yield put({
             type: SHELF_ACTIONS.SET_SHELF,
-            payload: shelfItems.data
+            payload: shelfItems
         });
     } catch (error) {
 
