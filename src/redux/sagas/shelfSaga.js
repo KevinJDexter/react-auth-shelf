@@ -1,9 +1,8 @@
-import { put, takeLatest } from 'redux-saga/effects';
-import { USER_ACTIONS } from '../actions/userActions';
-import { callUser } from '../requests/userRequests';
+import { put, takeEvery } from 'redux-saga/effects';
+import { SHELF_ACTIONS } from '../actions/shelfActions';
 
 
-function* fetchUser() {
+function* fetchShelf() {
     try {
 
     } catch (error) {
@@ -11,5 +10,8 @@ function* fetchUser() {
     };
 }
 
+function* shelfSaga() {
+    yield takeEvery(SHELF_ACTIONS.FETCH_SHELF, fetchShelf);
+  }
 
-export default userSaga;
+export default shelfSaga;
