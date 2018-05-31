@@ -9,16 +9,16 @@ router.get('/', (req, res) => {
     if (req.isAuthenticated()) {
         const queryText = 'SELECT * FROM "item"';
         pool.query(queryText)
-        .then((response) => {
-            res.send(response.rows);
-        })
-        .catch((error) => {
-            console.log(error);
-        });
+            .then((response) => {
+                res.send(response.rows);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     } else {
         res.sendStatus(403);
     }
-     // For testing only, can be removed
+    // For testing only, can be removed
 });
 
 
@@ -34,7 +34,18 @@ router.post('/', (req, res) => {
  * Delete an item if it's something the logged in user added
  */
 router.delete('/:id', (req, res) => {
-
+    if (req.isAuthenticated()) {
+        const idToDelete = req.params.id;
+        pool.query(`DELETE FROM "item" WHERE "id" = $1`, [idToDelete])
+            .then((response) => {
+                res.sendStatus(200);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    } else {
+        res.sendStatus(403);
+    }
 });
 
 

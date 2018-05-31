@@ -10,3 +10,14 @@ export function getShelfItems(payload) {
         .then(response => response.data)
         .catch((error) => { throw error; });
 }
+
+export function deleteShelfItem(id) {
+  const config = {
+    headers: { 'Content-Type': 'application/json' },
+    withCredentials: true,
+  };
+
+  return axios.delete(`api/shelf/${id}`, config)
+    .then(response => console.log(response))
+    .catch((error) => { throw error; });
+}
