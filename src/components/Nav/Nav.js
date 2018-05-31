@@ -16,13 +16,13 @@ const Nav = () => (
           </Link>
         </li>
         <li>
-<<<<<<< HEAD
           <Link to="/shelf">
             Shelf Page
-=======
+          </Link>
+        </li>
+        <li>
           <Link to="/add">
-          Add Shelf Items
->>>>>>> master
+            Add Shelf Items
           </Link>
         </li>
       </ul>
