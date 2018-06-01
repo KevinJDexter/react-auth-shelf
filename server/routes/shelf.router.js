@@ -44,6 +44,7 @@ router.get('/count', (req, res) => {
     GROUP BY "person"."username";`;
     pool.query(quertyText)
     .then((results) => {
+        console.log(results.rows);
         res.send(results.rows);
     })
     .catch((error) => {

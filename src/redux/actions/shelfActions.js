@@ -3,6 +3,6 @@ export const SHELF_ACTIONS = {
   SET_USERS: 'SET_USERS',
   };
   
-  export function getTheUsers() {
+  export function getTheUsersShelfAction() {
     return { type: SHELF_ACTIONS.OBTAIN_USERS };
   }

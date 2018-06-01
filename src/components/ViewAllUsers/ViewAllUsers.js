@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Nav from '../../components/Nav/Nav';
 
 // import { fetchUser } from '../../redux/actions/userActions';
-import { getTheUsers } from '../../redux/actions/shelfActions';
+import { getTheUsersShelfAction } from '../../redux/actions/shelfActions';
 // import { triggerLogout } from '../../redux/actions/loginActions';
 
 const mapStateToProps = state => ({
@@ -14,9 +14,13 @@ const mapStateToProps = state => ({
 class ViewAllUsers extends Component {
     componentDidMount() {
         // this.props.dispatch(fetchUser());
-        this.props.dispatch(getTheUsers());
+        this.props.dispatch(getTheUsersShelfAction());
+        // this.props.dispatch(getTheUsersShelfAction());
+        
     }
 
+
+    // UNCOMMENT THIS FOR AUTHENTICATION FEATURE
     // componentDidUpdate() {
     //     if (!this.props.user.isLoading && this.props.user.userName === null) {
     //         this.props.history.push('home');
@@ -28,7 +32,6 @@ class ViewAllUsers extends Component {
     // }
 
     render() {
-        { console.log(this.props.people) }
         return (
             <div>
                 <Nav />
@@ -40,10 +43,10 @@ class ViewAllUsers extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {/* {this.props.people.map((person) => {<tr key={person.id}>
+                        {this.props.people.map((person) => <tr key={person.id}>
                         <td>{person.username}</td>
                         <td>{person.count}</td>
-                        </tr>})} */}
+                        </tr>)}
                     </tbody>
                 </table>
             </div>

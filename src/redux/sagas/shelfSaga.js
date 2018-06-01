@@ -25,7 +25,7 @@ function* getTheUsers(action) {
 }
 
 function* shelfSaga() {
-    yield takeEvery(SHELF_ACTIONS.FETCH_SHELF, fetchShelf);
+    // yield takeEvery(SHELF_ACTIONS.FETCH_SHELF, fetchShelf);
     yield takeEvery(SHELF_ACTIONS.OBTAIN_USERS, getTheUsers);
 }
 
